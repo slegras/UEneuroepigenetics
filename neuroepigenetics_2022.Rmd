@@ -44,7 +44,7 @@ Bioinformatics tools will be run through the french instance of Galaxy, [Galaxy 
 ### - IGV
 The Genome browser IGV will be used to visualize the data in a genomics context.
 
-### Biojupies
+### - Biojupies
 Biojupies will be used to run the differential expression analysis.
 
 # - Prepare your Galaxy environment
@@ -55,7 +55,7 @@ Go to Galaxy France website: https://usegalaxy.fr/ and log in with your personal
 
 ![][logingalaxy]
 
-## - Import a public history that contains data analyzed during this training
+## - Import a public history that contains data that will be analyzed during this training
 Data analyzed during this training are available in a public history: https://usegalaxy.fr/u/stephanie/h/neuro-epigenetics-training-data. Import this history.
 
 ### - Browse to the history named "Neuro-epigenetics training" 
@@ -76,7 +76,7 @@ The datasets are in the imported history "Imported: Neuro-epigenetics training (
   * Click on the down sided arrow on the top right of your history panel and select "Show History Side-by-Side"
 ![][importfastqfiles]
 
-  * Drag and drop the datasets R6_1_387_St.chr19.fastq.gz and WT_320_St.chr19.fastq.gz from imported history to the working one.
+  * Drag and drop the datasets **R6_1_387_St.chr19.fastq.gz** and **WT_320_St.chr19.fastq.gz** from imported history to the working one.
 ![][importfastqfiles2]
 
 # - Analysis of RNA-seq data
@@ -87,7 +87,7 @@ Analysis of RNA-seq data will be run with the following steps:
   * [Galaxy] Generation of visualization tracks
   * [IGV] Visualization of the data
   * [not done] Generation of per gene counts matrix
-  * [Galaxy] Differential expression analysis
+  * [Biojupies] Differential expression analysis
 
 ![][rnaseqworkflow]
 
@@ -117,9 +117,9 @@ Citation: Dobin A, Davis CA, Schlesinger F, Drenkow J, Zaleski C, Jha S, Batut P
 
 Use of the tool: It map RNA-seq data to the reference genome really fast. It uses known transcript junction information to align reads but can also discover new splice junction events.
 
-### Add the dataset that describe transcripts structure (Mus_musculus.NCBIM37.67_UCSConlychr.gtf) to your current history
+### - Add the dataset that describe transcripts structure (Mus_musculus.NCBIM37.67_UCSConlychr.gtf) to your current history
 
-  * The dataset is in the imported history "Neuro-epigenetics training (data)". 
+  * The dataset is in the imported history "Imported: Neuro-epigenetics training (data)". 
   * Click on the down sided arrow on the top right of your history panel and select "Show History Side-by-Side"
 ![][showhistoryoption]
 
@@ -127,44 +127,44 @@ Use of the tool: It map RNA-seq data to the reference genome really fast. It use
 
 ![][addgtfhistory]
 
-### Run STAR to map the reads to the genome
+### - Run STAR to map the reads to the genome
 ![][runstar]
 
-### Import the two datasets WT_320_St.chr19.bam and R6_1_387_St.chr19.bam to your working history.
-As mapping is a long processing step, mapping data are provided in the imported history "Neuro-epigenetics training (data)". 
+### - Import the two datasets WT_320_St.chr19.bam and R6_1_387_St.chr19.bam to your working history.
+As mapping is a long processing step, mapping data are provided in the imported history "Imported: Neuro-epigenetics training (data)". 
 
   * Click on "Show history options" > "Show History Side-by-Side"
   * Drag and drop the two datasets from the imported history to the working one.
   
 ![][getmappedreads]  
 
-## Generation of visualization tracks
+## - Generation of visualization tracks
 Tool: **Deeptools bamCoverage**
 
 Documentation: https://deeptools.readthedocs.io/en/develop/content/tools/bamCoverage.html 
 
 Citation: Ramírez, Fidel, Devon P. Ryan, Björn Grüning, Vivek Bhardwaj, Fabian Kilpert, Andreas S. Richter, Steffen Heyne, Friederike Dündar, and Thomas Manke. deepTools2: A next Generation Web Server for Deep-Sequencing Data Analysis. Nucleic Acids Research (2016). doi:10.1093/nar/gkw257.
 
-Use of the tool: This is suite of tools implemeted to manage next generation sequencing data especially ChIP-seq and RNA-seq data. Some tools can create plots useful to have global views at the data.
+Use of the tool: This is suite of tools is meant to handle next generation sequencing data especially ChIP-seq and RNA-seq data. Some tools can create plots useful to have global views at the data.
 
-### Use the tool bamCoverage to generate comparable signal tracks from mapping data
+### - Use the tool bamCoverage to generate comparable signal tracks from mapping data
 ![][generatebigwigs]
 
-## Visualization of the data
-### Download mapping files
-Do it for the two files WT_320_St.chr19.bam and R6_1_387_St.chr19.bam
+## - Visualization of the data
+### - Download mapping files
+Do it for the two files **WT_320_St.chr19.bam** and **R6_1_387_St.chr19.bam**
 
 ![][downloadmappingfiles]
 
-### Download results files (results from bamCoverage)
+### - Download results files (results from bamCoverage)
 Do it for the two result datasets.
 
 ![][downloadbigwigs]
 
-### Launch IGV, select the assembly: mm9
+### - Launch IGV, select the assembly: mm9
 ![][selectassemblyigv]
 
-### Load the bam files and the bigwig files
+### - Load the bam files and the bigwig files
 **Note: file bam.bai should be in the same directory as bam files otherwise they won't be loaded!**
 
 In IGV menu:
@@ -179,25 +179,25 @@ You should get:
 
 ![][igv]
 
-### Go to chromosome 19
+### - Go to chromosome 19
 ![][chr19]
 
-### Select the two bigwig tracks 
-#### Set them to the same scale using <right click> + select Group Autoscale
+### - Select the two bigwig tracks 
+#### - Set them to the same scale using <right click> + select Group Autoscale
 ![][autoscale]
 
-#### Set the windowing function to Maximum <right click> + select Maximum
+#### - Set the windowing function to Maximum <right click> + select Maximum
 ![][windowmax]
 
-### Go to Syt12 gene
+### - Go to Syt12 gene
 ![][syt12]
 
-## Generation of per gene counts matrix
-### The matrix of read counts per gene is available in GEO website
+## - Generation of per gene counts matrix
+### - The matrix of read counts per gene is available in GEO website
 It has been downloaded from [GEO](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE59571). It is available in the file data/GSE59571_S13113_readCounts.xlsx. We are going to run a differential expression analysis on these data.
 
-## Differential expression analysis
-### Use the matrix in the tool Biojupies to run a differential expression analysis
+## - Differential expression analysis
+### - Use the matrix in the tool Biojupies to run a differential expression analysis
 Tool: **Biojupies**
 
 Website: https://maayanlab.cloud/biojupies/
@@ -208,7 +208,7 @@ Citation: Torre D, Lachmann A, Ma'ayan A. BioJupies: Automated Generation of Int
 
 Use of the tool: BioJupies is a web application that enables the RNA-seq data analyses. Through an intuitive interface, users can rapidly generate tailored reports to analyze and visualize their own raw sequencing files, gene expression tables, or fetch data from >9,000 published studies containing >300,000 preprocessed RNA-seq samples.
 
-### Start an analysis with Biojupies
+### - Start an analysis with Biojupies
 ![][biojupiesetup1]
 
 ![][biojupiesetup2]
@@ -240,7 +240,7 @@ or click to run the analysis report.
 
 ![][biojupiesok]
 
-### Download the list of deregulated genes, is Syt12 significantly deregulated?
+### - Download the list of deregulated genes, is Syt12 significantly deregulated?
 
 
 [logingalaxy]: images/1-logInGalaxy.png "Log In Galaxy"
