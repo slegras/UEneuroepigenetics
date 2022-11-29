@@ -177,7 +177,7 @@ Select bam files and bigwig files.
 
 You should get:
 
-![][igv]
+![][igvscreenshot]
 
 ### - Go to chromosome 19
 ![][chr19]
@@ -194,7 +194,7 @@ You should get:
 
 ## - Generation of per gene counts matrix
 ### - The matrix of read counts per gene is available in GEO website
-It has been downloaded from [GEO](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE59571). It is available in the file data/GSE59571_S13113_readCounts.xlsx. We are going to run a differential expression analysis on these data.
+It has been downloaded from [GEO](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE59571). It is available in the file https://github.com/slegras/UEneuroepigenetics/blob/main/data/GSE59571_S13113_readCounts.xlsx (follow the link and click on "Download" on the right). We are going to run a differential expression analysis using these data. 
 
 ## - Differential expression analysis
 ### - Use the matrix in the tool Biojupies to run a differential expression analysis
@@ -206,7 +206,7 @@ Documentation: https://maayanlab.cloud/biojupies/help
 
 Citation: Torre D, Lachmann A, Ma'ayan A. BioJupies: Automated Generation of Interactive Notebooks for RNA-Seq Data Analysis in the Cloud. Cell Syst. 2018 Nov 28;7(5):556-561.e3. doi: 10.1016/j.cels.2018.10.007. Epub 2018 Nov 14. PMID: 30447998; PMCID: PMC6265050.
 
-Use of the tool: BioJupies is a web application that enables the RNA-seq data analyses. Through an intuitive interface, users can rapidly generate tailored reports to analyze and visualize their own raw sequencing files, gene expression tables, or fetch data from >9,000 published studies containing >300,000 preprocessed RNA-seq samples.
+Use of the tool: BioJupies is a web application that enables RNA-seq data analyses. Through an intuitive interface, users can rapidly generate tailored reports to analyze and visualize their own raw sequencing files, gene expression tables, or fetch data from >9,000 published studies containing >300,000 preprocessed RNA-seq samples.
 
 ### - Start an analysis with Biojupies
 ![][biojupiesetup1]
@@ -263,7 +263,7 @@ or click to run the analysis report.
 [selectassemblyigv]: images/17-selectAssemblyIGV.png "Select assembly igv"
 [loadfilesigv]: images/18-loadfilesIGV.png "load files igv"
 [selectfilesigv]: images/19-selectFilesIGV.png "select files igv"
-[igv]: images/20-igv.png "igv"
+[igvscreenshot]: images/20-igv.png "igv"
 [chr19]: images/21-igvChr19.png "chr19"
 [autoscale]: images/22-igvGroupAutoscale.png "autoscale"
 [windowmax]: images/23-igvMaximum.png "windowing function: maximum"
