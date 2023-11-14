@@ -5,7 +5,7 @@
 | Course | Training material |
 |----------------------------------|----------|
 | Lecture | [pdf](neuroepigenetics_2022.pdf) |
-| Hands-on - HTML render | [HTML](https://slegras.github.io/UEneuroepigenetics/neuroepigenetics_2022.html) |
+| Hands-on - HTML render | [HTML](https://slegras.github.io/UEneuroepigenetics/neuroepigenetics.html) |
 
 ## Link
 - Web pages: <https://slegras.github.io/UEneuroepigenetics/>
