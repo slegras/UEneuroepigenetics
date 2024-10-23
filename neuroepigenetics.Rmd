@@ -1,7 +1,7 @@
 ---
 title: "UE Neuroepigenetics M2S3 - Primary analyses of sequencing data"
 author: "Stephanie Le Gras$^{1}$ - slegras@igbmc.fr"
-date: "2023 November 14th"
+date: "October 23-24, 2024"
 output:
   html_document:
     fig_caption: yes
@@ -21,7 +21,7 @@ bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, root.dir="~/Documents/Formations/2023/UE_neuroEpigenetique")
+knitr::opts_chunk$set(echo = TRUE, root.dir="~/Documents/Formations/2024/UE_neuroEpigenetique")
 ```
 
 $^1$ GenomEast platform, IGBMC
@@ -50,19 +50,26 @@ Biojupies will be used to run the differential expression analysis.
 # - Prepare your Galaxy environment
 Galaxy is a tool that allow users to run bioinformatics tools on a high performance computing cluster through a simple web interface. We are going to use the french instance of Galaxy, Galaxy France.
 
+## - Register to Galaxy France...
+... if you don't have an account yet. Go to Galaxy France website: https://usegalaxy.fr/ and register.
+![][registergalaxy1]
+![][registergalaxy2]
+![][registergalaxy3]
+
 ## - Log in to Galaxy
 Go to Galaxy France website: https://usegalaxy.fr/ and log in with your personal account.
 
 ![][logingalaxy]
 
 ## - Import a public history that contains data that will be analyzed during this training
-Data analyzed during this training are available in a public history: https://usegalaxy.fr/u/stephanie/h/neuro-epigenetics-training-data. Import this history.
+Data analyzed during this training are available in a public history: https://usegalaxy.fr/u/stephanie/h/neuro-epigenetics-training-data. Click on the link and import this history or follow the whole process.
 
 ### - Browse to the history named "Neuro-epigenetics training (data)"
 ![][importhistory1]
+![][importhistory2]
 
 ### - Import the history
-![][importhistory2]
+![][importhistory3]
 
 ### - Create a new working history
 ![][createnewhistory]
@@ -71,12 +78,12 @@ Data analyzed during this training are available in a public history: https://us
 ![][changehistoryname]
 
 ### - Import raw data (fastq files) from the imported history to the newly created history "Neuro-epigenetics training"
-The datasets are in the imported history "Imported: Neuro-epigenetics training (data)".
+The datasets are in the imported history "Copy of 'Neuro-epigenetics training (data)'".
 
-  * Click on the down sided arrow on the top right of your history panel and select "Show History Side-by-Side"
+  * Click on the "History options" button on the top right of your history panel and select "Show Histories Side-by-Side"
 ![][importfastqfiles]
 
-  * Drag and drop the datasets **R6_1_387_St.chr19.fastq.gz** and **WT_320_St.chr19.fastq.gz** from imported history to the working one.
+  * Drag and drop the datasets **R6_1_387_St.chr19.fastq.gz** and **WT_320_St.chr19.fastq.gz** from the imported history to the working one.
 ![][importfastqfiles2]
 
 # - Analysis of RNA-seq data
@@ -117,13 +124,13 @@ Citation: Dobin A, Davis CA, Schlesinger F, Drenkow J, Zaleski C, Jha S, Batut P
 
 Use of the tool: It map RNA-seq data to the reference genome really fast. It uses known transcript junction information to align reads but can also discover new splice junction events.
 
-### - Add the dataset that describe transcripts structure (Mus_musculus.NCBIM37.67_UCSConlychr.gtf) to your current history
+### - Add the dataset that contains transcript structures (Mus_musculus.NCBIM37.67_UCSConlychr.gtf) to your current history
 
-  * The dataset is in the imported history "Imported: Neuro-epigenetics training (data)".
-  * Click on the down sided arrow on the top right of your history panel and select "Show History Side-by-Side"
+  * The dataset is in the imported history "Copy of 'Neuro-epigenetics training (data)'".
+  * Click on the "History options" button on the top right of your history panel and select "Show Histories Side-by-Side"
 ![][showhistoryoption]
 
-  * Drag and drop the dataset Mus_musculus.NCBIM37.67_UCSConlychr.gtf from imported history to working one.
+  * Drag and drop the dataset Mus_musculus.NCBIM37.67_UCSConlychr.gtf from the imported history to the working one.
 
 ![][addgtfhistory]
 
@@ -131,9 +138,9 @@ Use of the tool: It map RNA-seq data to the reference genome really fast. It use
 ![][runstar]
 
 ### - Import the two datasets WT_320_St.chr19.bam and R6_1_387_St.chr19.bam to your working history.
-As mapping is a long processing step, mapping data are provided in the imported history "Imported: Neuro-epigenetics training (data)".
+As mapping is a long processing step, mapping data are provided in the imported history "Copy of 'Neuro-epigenetics training (data)'".
 
-  * Click on "Show history options" > "Show History Side-by-Side"
+  * Click on the "History options" button > "Show Histories Side-by-Side"
   * Drag and drop the two datasets from the imported history to the working one.
 
 ![][getmappedreads]  
@@ -161,17 +168,16 @@ Do it for the two result datasets.
 
 ![][downloadbigwigs]
 
-### - Launch IGV, select the assembly: mm9
+### - Run the IGV app going to the website https://igv.org/app/, select the assembly: mm9
 ![][selectassemblyigv]
 
-### - Load the bam files and the bigwig files
-**Note: file bam.bai should be in the same directory as bam files otherwise they won't be loaded!**
+### - Load the bam files (select both the bam and the bai files) and the bigwig files
 
 In IGV menu:
 
 ![][loadfilesigv]
 
-Select bam files and bigwig files.
+Select the bam, bai and bigwig files.
 
 ![][selectfilesigv]
 
@@ -183,13 +189,14 @@ You should get:
 ![][chr19]
 
 ### - Select the two bigwig tracks
-#### - Set them to the same scale using <right click> + select Group Autoscale
-![][autoscale]
-
-#### - Set the windowing function to Maximum <right click> + select Maximum
+#### - Set the windowing function to Maximum for the two bigwigs tracks
 ![][windowmax]
 
 ### - Go to Syt12 gene
+#### - Set the two bigwig files to the same scale 0-31 at Syt12 gene 
+![][samescale1]
+![][samescale2]
+
 ![][syt12]
 
 ## - Generation of per gene counts matrix
@@ -242,10 +249,13 @@ or click to run the analysis report.
 
 ### - Download the list of deregulated genes, is Syt12 significantly deregulated?
 
-
+[registergalaxy1]: images/0-registergalaxy1.png "Register Galaxy 1"
+[registergalaxy2]: images/0-registergalaxy2.png "Register Galaxy 2"
+[registergalaxy3]: images/0-registergalaxy3.png "Register Galaxy 3"
 [logingalaxy]: images/1-logInGalaxy.png "Log In Galaxy"
 [importhistory1]: images/2-ImportHistory1.png "Import History 1"
-[importhistory2]: images/3-ImportHistory2.png "Import History 2"
+[importhistory2]: images/2-ImportHistory2.png "Import History 2"
+[importhistory3]: images/3-ImportHistory3.png "Import History 3"
 [createnewhistory]: images/4-CreateNewHistory.png "Create new History"
 [changehistoryname]: images/5-ChangeHistoryName.png "Change history name"
 [importfastqfiles]: images/6-ImportFastqFiles1.png "import fasta file 1"
@@ -265,7 +275,8 @@ or click to run the analysis report.
 [selectfilesigv]: images/19-selectFilesIGV.png "select files igv"
 [igvscreenshot]: images/20-igv.png "igv"
 [chr19]: images/21-igvChr19.png "chr19"
-[autoscale]: images/22-igvGroupAutoscale.png "autoscale"
+[samescale1]: images/22-igvsamescale1.png "same scale 1"
+[samescale2]: images/22-igvsamescale2.png "same scale 2"
 [windowmax]: images/23-igvMaximum.png "windowing function: maximum"
 [syt12]: images/24-igvSyt12.png "Syt12"
 [biojupiesetup1]: images/25-biojupiesSetup1.png "Start biojupies"
